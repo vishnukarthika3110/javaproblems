@@ -1,0 +1,140 @@
+//add two arrays and forward carry
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+    List<Integer>  l1=new ArrayList<>();
+    l1.add(2);
+    l1.add(4);
+    l1.add(3);
+    List<Integer>  l2=new ArrayList<>();
+    l2.add(5);
+    l2.add(6);
+    l2.add(4);
+    Collections.reverse(l1);
+    Collections.reverse(l2);
+   
+    List<Integer> result = new ArrayList<>();
+    int carry=0;
+    for(int i=0;i<l1.size();i++){
+       int sum=l1.get(i)+l2.get(i)+carry;
+       result.add(0,sum%10);
+       carry=sum/10;
+       
+    }
+    if(carry>0){
+        result.add(0, carry);
+    }
+    Collections.reverse(result);
+    System.out.println(result);
+    }
+}
+
+check target by DDING 2 ARRAYS
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        for(int i=0;i<nums.length;i++){
+            for(int j=i+1;j<nums.length;j++){
+                if(nums[i]+nums[j]==target){
+                    return new int[]{i,j};
+                }
+            }
+        }
+        return new int[]{};
+    }
+}
+
+//Find Frequency of Each Element
+
+//Example:
+
+//{1,2,2,3,1}
+
+//Output:
+
+//1 -> 2 times
+//2 -> 2 times
+//3 -> 1 time
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+   int arr[]={1,2,2,3,1};
+   for(int i=0;i<arr.length;i++){
+       boolean found=false;
+       for(int j=i+1;j<arr.length;j++){
+           if(arr[i]==arr[j]){
+               found=true;
+               break;
+           }
+       }
+       if(found)
+       continue;
+       int count=0;
+       for(int j=0;j<arr.length;j++){
+           if(arr[i]==arr[j]){
+               count++;
+           }
+       }
+       System.out.println(arr[i]+" "+count);
+   }
+   
+    }
+}
+
+max element in array
+
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+   int arr[]={2,3,10,6};
+   int min=arr[0];
+   int max=arr[1]-arr[0];
+   
+   for(int i=0;i<arr.length;i++){
+int diff=arr[i]-min;
+    if(diff>max){
+    max=diff;
+}
+    if(arr[i]<min){
+    min=arr[i];
+}
+   }
+   System.out.println(max);
+    }
+}
+
+//8. Rotate Array Left
+// 2 3 4 5 1
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+   int arr[]={1,2,3,4,5};
+   int first=arr[0];
+   for(int i=0;i<arr.length-1;i++){
+       arr[i]=arr[i+1];
+   }
+   arr[arr.length-1]=first;
+   for(int i:arr){
+       System.out.print(i+" ");
+   }
+    }
+}
+
+//8. Rotate Array right
+// {5, 1, 2, 3, 4}
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+   int arr[]={1,2,3,4,5};
+   int first=arr[arr.length-1];
+   for(int i=arr.length-1;i>0;i--){
+       arr[i]=arr[i-1];
+   }
+   arr[0]=first;
+   for(int i:arr){
+       System.out.print(i+" ");
+   }
+    }
+}
