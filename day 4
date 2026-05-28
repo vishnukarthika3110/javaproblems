@@ -1,0 +1,43 @@
+//pattern
+class Main {
+    public static void main(String[] args) {
+    int k=1;
+    for(int i=1;i<=5;i++){
+        for(int j=1;j<i;j++){
+           
+            System.out.print(k);
+            k++;
+        }
+        System.out.println(" ");
+    }
+  
+    }
+}
+
+//buy & sell
+class Main {
+    public static void main(String[] args) {
+
+        int arr[] = {7,1,5,3,6,4};
+
+        int buy = arr[0];
+        int maxProfit = 0;
+
+        for(int i = 1; i < arr.length; i++) {
+
+            int profit = arr[i] - buy;
+
+            if(profit > maxProfit) {
+                maxProfit = profit;
+            }
+
+            if(arr[i] < buy) {
+                buy = arr[i];
+            }
+        }
+
+      //reverse using 2 pointer
+      
+        System.out.println(maxProfit);
+    }
+}
