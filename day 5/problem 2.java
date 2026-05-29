@@ -1,29 +1,49 @@
-import java.io.*;
-import java.util.*;
-import java.text.*;
-import java.math.*;
-import java.util.regex.*;
+Sample Input
+
+3
+uncle sam
+99912222
+tom
+11122222
+harry
+12299933
+uncle sam
+uncle tom
+harry
+Sample Output
+
+uncle sam=99912222
+Not found
+harry=12299933
+ import java.util.*;
 
 public class Solution {
 
- public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
-        int t = s.nextInt();
-        String [] pair_left = new String[t];
-        String [] pair_right = new String[t];
-        
-        for (int i = 0; i < t; i++) {
-            pair_left[i] = s.next();
-            pair_right[i] = s.next();
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        sc.nextLine(); // consume newline
+
+        HashMap<String, String> map = new HashMap<>();
+
+        // Input phone book
+        for (int i = 0; i < n; i++) {
+            String name = sc.nextLine();
+            String phone = sc.nextLine();
+            map.put(name, phone);
         }
-    
-    HashSet<String> set=new HashSet<>();
-    for(int i=0;i<t;i++){
-        String pair=pair_left[i]+" "+pair_right[i];
-        set.add(pair);
-        System.out.println(set.size());
-    }
 
+        // Queries
+        while (sc.hasNext()) {
+            String query = sc.nextLine();
 
+            if (map.containsKey(query)) {
+                System.out.println(query + "=" + map.get(query));
+            } else {
+                System.out.println("Not found");
+            }
+        }
     }
 }
