@@ -1,0 +1,26 @@
+remove duplicataes from sorted array
+ip=1,1,2
+op=2==>length of k
+class solution{
+    public int dupli(int []arr){
+        int k=1;
+        for(int i=1;i<arr.length;i++){
+            if(arr[i]!=arr[k-1]){
+                arr[k]=arr[i];
+                k++;
+            }
+        }
+        return k;
+    }
+}
+class Main {
+    public static void main(String[] args) {
+    solution s=new solution();
+    int arr[]={1,1,2};
+    int k=s.dupli(arr);
+    System.out.println(k);
+    for(int i=0;i<k;i++){
+         System.out.println(arr[i]);
+    }
+    }
+}
