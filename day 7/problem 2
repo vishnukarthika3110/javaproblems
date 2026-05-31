@@ -1,0 +1,21 @@
+palindrome
+ip=121
+op=true
+class Solution {
+    public boolean isPalindrome(int x) {
+        if (x < 0) {
+            return false;
+        }
+
+        int temp = x;
+        int rev = 0;
+
+        while (x > 0) {
+            int y = x % 10;
+            rev = rev * 10 + y;
+            x /= 10;
+        }
+
+        return temp == rev;
+    }
+}
